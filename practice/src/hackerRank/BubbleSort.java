@@ -12,6 +12,20 @@ public class BubbleSort {
         System.out.println();
     }
     
+    static void bubbleSortE(int[] arr) {  
+        int n = arr.length;  
+        int temp = 0;  
+         for(int i=0; i < n; i++){  //looping each index
+                 for(int j=1; j < (n-i); j++){  //Each loop fixes one element
+                          if(arr[j-1] > arr[j]){  
+                                 //swap elements  
+                                 temp = arr[j-1];  
+                                 arr[j-1] = arr[j];  
+                                 arr[j] = temp;  
+                         }  
+                 }  
+         } 
+    }
     public static void bubbleSort(int[] x) {
         //printArray("Initial", x);
         
@@ -22,6 +36,7 @@ public class BubbleSort {
         while( endPosition > 0 ) {
             swapPosition = 0;
             
+            //lopp moving bigger element towards end
             for(int i = 0; i < endPosition; i++) {
                 
                 if( x[i] > x[i + 1] ){
@@ -32,10 +47,13 @@ public class BubbleSort {
                     x[i + 1] = tmp;
                     
                     swapPosition = i;
+                    printArray("switched", x);
                 } // end if
                 
                 //printArray("Current", x);
             } // end for
+            
+          printArray("val", x);
             
             endPosition = swapPosition;
         } // end while
